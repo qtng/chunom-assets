@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'NomKhai-Supplement';
+  src: local('__'), url('nomkhai-supplement.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Han-Nom Gothic Supplement';
+  src: local('Han-Nom Gothic'), url('hannom-gothic-supplement.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nom Na Tong Supplement';
+  src: local('Nom Na Tong'), url('nomnatong-supplement.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Radicals Supplement';
+  src: local('HanaMinA'), url('radicals.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'pa';
+  src: local('HanaMinA'), url('pa-Regular.woff2') format('woff2');
+}
