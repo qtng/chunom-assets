@@ -15,10 +15,10 @@
 
 /* Hannom Pen: CJK ideographs (BMP and the planes 2 and 3), kana, Zhuyin, Hangul compatibility jamo, the fullwidth forms and the CJK punctuation in the Pen style (9.8 MB).
    unicode-range: it is loaded only when a character of these blocks is shown, never for Latin text or spaces. The QATT letters (U+F0000..F00A3) have a face of their own, the
-   small file of Pen Medium (the subset of Hannom Pen for QATT text), so a page that shows only QATT letters never loads the big file. */
+   small file of QATT Pen (the subset of Hannom Pen for QATT text), so a page that shows only QATT letters never loads the big file. */
 @font-face {
   font-family: 'QATT Hannom Pen';
-  src: url('https://qatt.org/fonts/qatt-pen-medium.woff2') format('woff2');
+  src: url('https://qatt.org/fonts/qatt-pen.woff2') format('woff2');
   unicode-range: U+F0000-F00A3;
 }
 
