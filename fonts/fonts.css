@@ -13,6 +13,14 @@
   src: local('Nom Na Tong'), url('nomnatong-supplement.woff2') format('woff2');
 }
 
+/* Hannom Pen: CJK ideographs (BMP and the planes 2 and 3), kana, Zhuyin, Hangul compatibility jamo, the fullwidth forms and the CJK punctuation in the Pen style (9.8 MB, test build).
+   unicode-range: it is loaded only when a character of these blocks is shown, never for Latin text or spaces. The QATT letters (U+F0000..F00A3) are in the file too but not in the range: QATT text has its own fonts. */
+@font-face {
+  font-family: 'QATT Hannom Pen';
+  src: url('hannom-pen.woff2') format('woff2');
+  unicode-range: U+2E80-2FDF, U+2FF0-303F, U+3040-30FF, U+3100-312F, U+3130-318F, U+31A0-31FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+16FF0-16FF1, U+20000-3FFFF;
+}
+
 @font-face {
   font-family: 'Radicals Supplement';
   src: local('HanaMinA'), url('radicals.woff2') format('woff2');
