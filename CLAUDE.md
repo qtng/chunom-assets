@@ -1,6 +1,6 @@
 # qtng/chunom-assets
 
-Static files without code, served at `/chunom-assets/` of the Chunom site: `generated/{32,160}/<HEX>.webp` (images of Chữ Nôm characters, 32 and 160 px), `animations/` and `glyph-composer/` (stroke animations and SVGs of the detail popup), `fonts/` (WOFF2 fonts and `fonts.css` with the font families of the site), `dict/` (scans of the Génibrel and Bonet dictionaries as WebP), `audio/`.
+Static files without code, served at `/chunom-assets/` of the Chunom site: `generated/{32,160}/<HEX>.webp` (images of Chữ Nôm characters, 32 and 160 px), `animations/` and `glyph-composer/` (stroke animations and SVGs of the detail popup), `fonts/` (the big fonts as `.ttf` for the desktop, their web files in `fonts/web/` (CJK slices, Latin, `slices.json`; `js/fonts.js` of qatt.org defines the families, there is no `fonts.css` any more), the Nôm supplement fonts, the specimen files of the font pages), `dict/` (scans of the Génibrel and Bonet dictionaries as WebP), `audio/`.
 File names use the code point in upper-case hex without leading zeros (`31EB5.webp`). The repository is large; clone it sparse (`git clone --filter=blob:none --no-checkout`, then `git sparse-checkout set <folders>`).
 
 ## The sites and their four repositories
@@ -25,10 +25,10 @@ Old addresses that must keep working: `chunom.org/pages/<HEX>/`, `chunom.org/pag
 
 ## URL rules (important when you add or change a link)
 
-- **Inside the Chunom site** (`chunom`, `pages`, `chunom-assets`) use **root-relative** paths: `/chunom/js/detail.js`, `/chunom-assets/fonts/fonts.css`, `/pages/site.js`. Never write the domain, so the same file works on any domain of the site.
+- **Inside the Chunom site** (`chunom`, `pages`, `chunom-assets`) use **root-relative** paths: `/chunom/js/detail.js`, `/chunom-assets/fonts/web/slices.json`, `/pages/site.js`. Never write the domain, so the same file works on any domain of the site.
 - **From the Chunom site to qatt.org** use **absolute** URLs: `https://qatt.org/vendor/bootstrap/…` (Bootstrap, Bootstrap Icons, Supabase), `https://qatt.org/js/qatt.js`, `parser.js`, `supabase.js`, `login.js`, `https://qatt.org/fonts/…`.
 - **Inside qatt.org** use **root paths** without any folder prefix: `/js/navigation.js`, `/editor.html`, `/img/logo.svg` (the old prefix `/qatt/` no longer exists).
-- **From qatt.org to the Chunom site** use **absolute** URLs with the domain: `https://chunom.org/chunom/js/ime.js`, `https://chunom.org/chunom-assets/fonts/fonts.css`.
+- **From qatt.org to the Chunom site** use **absolute** URLs with the domain: `https://chunom.org/chunom/js/ime.js`, `https://chunom.org/chunom-assets/fonts/web/slices.json`.
 - **Scripts that other pages load across sites** (`chunom/js/detail.js`, `ime.js`, `practice.js`) must not assume their own origin: they derive their location from `document.currentScript.src` (e.g. `new URL('../../', BASE)` = root of the Chunom site).
 - Canonical links, `og:` tags and the sitemap need absolute URLs; `qtng/pages` writes them from `tools/generate.py --site …`.
 - There is **one `js/navigation.js`** (menu bar, brand, bottom bar on phones, and the translation `Lang`), in `qtng/qatt`, served at `https://qatt.org/js/navigation.js`. The pages of the Chunom site load it from there with `<script src="https://qatt.org/js/navigation.js"></script>` early in `<head>` (a normal script, not `defer`, so that the page is translated while it is parsed). It picks brand, logo, icons, colours and the own block of the menu from the address of the page (`chunom.org` or the folders `/chunom/`, `/pages/`, `/chunom-assets/` = Chunom site, else qatt.org); the constants `CHUNOM_SITE` and `QATT_SITE` hold the absolute addresses for the links to the other site. The Chunom logo and icons are in `chunom/img/`.
